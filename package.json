@@ -1,5 +1,5 @@
 {
-  "name": "turborepo-basic-shared",
+  "name": "turborepo-fullstack-template",
   "version": "0.0.0",
   "private": true,
   "workspaces": [
@@ -10,7 +10,10 @@
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "test": "turbo run test",
+    "storybook:build": "yarn workspace @packages/ui storybook:build",
+    "storybook:start": "yarn workspace @packages/ui storybook:start"
   },
   "devDependencies": {
     "prettier": "^2.5.1",
@@ -27,12 +30,16 @@
           ".next/**"
         ]
       },
-      "lint": {
-        "outputs": []
-      },
       "dev": {
         "cache": false
-      }
+      },
+      "lint": {},
+      "start": {
+        "dependsOn": [
+          "build"
+        ]
+      },
+      "test": {}
     }
   },
   "engines": {

@@ -1,1 +1,4 @@
-module.exports = require("config/eslint-preset");
+module.exports = {
+  ...require('@packages/eslint/nextjs-eslint.js'),
+  root: true,
+};
